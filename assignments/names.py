@@ -28,6 +28,5 @@ for key, data in users.items():
 	student = 1
 	print key
 	for value in data:
-		if users["Students"]:
 			print  student, '-', value["first_name"], value["last_name"], "-", (len(value["first_name"]) + len(value["last_name"]))
 			student +=1
