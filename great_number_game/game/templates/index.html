@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <style>
+        	body {
+        		text-align:  center;
+        	}
+        	.guess {
+        		background: red;
+        		color: #fff;
+        		width: 200px;
+        		padding: 70px 0 0 0;
+        		box-sizing: border-box;
+        		text-align: center;
+        		height: 200px;
+        		margin: 0 auto 20px;
+        	}
+        	.container {
+        		max-width: 1000px;
+        		margin: 0 auto 0;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="container">
+    	<h1> Welcome to the great Number Game! </h1>
+    	<p> I am thinking of a number between 1 and 100 </p>
+    	<p> Take a guess! </p>
+    	<div class="guess"> <p>{{ }}</p></div>
+    	<form action="/submit" method="post">
+    		<input type="text" name="number">
+    		<button class="submit" value="submit"> Submit </button>
+    	</form>
+    	</div>
+    </body>
+</html>
