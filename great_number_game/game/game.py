@@ -6,22 +6,28 @@ app.secret_key = "tadkg250atk"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	session['user_guess'] = int(request.form['number'])
-	session['random_number'] = random.randrange(0,101)
-	
-	if session['number'] == session['user_guess']:
-		session['answer'] = "Amaaaaaazing"
-	elif session['number'] > session['user_guess']:
-		session['answer'] = "Tooo Low"
-	else:
-		session['answer'] = "Toooo High!"
-	return render_template('index.html', user_guess = session['user_guess'], answer = session['answer'] )
 
-@app.route('/submit', methods=['POST'])
-def submit_guess():
-	session_clear()
-	get_number()
 
-	return redirect('/' )
+	return render_template('index.html')
+
+
+@app.route('/submit', methods=['POST'])	
+def submit_form():
+
+	if 'random_number' not in session:
+		session['random_number'] = random.randint(0,101)
+	if 'msg' not in session:
+		session['msg'] = ''
+	if request.method == 'POST':
+		if session['random_number'] == int(request.form['number']):
+			session.pop('number')
+			session['msg'] = "You are hecka winning!"
+		elif session['random_number'] > int(request.form['number']):
+			session['msg']= "A little low"
+		else:
+			session['msg'] = "A little high"
+
+		
+	return redirect('/')
 
 app.run(debug=True)

@@ -31,7 +31,7 @@
     	<h1> Welcome to the great Number Game! </h1>
     	<p> I am thinking of a number between 1 and 100 </p>
     	<p> Take a guess! </p>
-    	<div class="guess"> <p>{{ }}</p></div>
+    	<div class="guess"> <p>{{ session['msg'] }}</p></div>
     	<form action="/submit" method="post">
     		<input type="text" name="number">
     		<button class="submit" value="submit"> Submit </button>
