@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Basic Form Validation</title>
+       
+    </head>
+    <body>
+    	<h1> Enter a valid name </h1>
+    	{% with messages = get_flashed_messages() %} 
+		    {% if messages %}
+		      {% for message in messages %}
+		        <p>{{message}}</p>
+		      {% endfor %}
+		    {% endif %}
+		  {% endwith %}
+
+
+    	<form action="/process" method="post">
+    		Name: <input name="full_name" type="text">
+    		<input type="submit" value="submit">
+    	</form>
+    </body>
+</html>
